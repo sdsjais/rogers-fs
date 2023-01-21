@@ -113,7 +113,7 @@ useEffect(()=>{
               <div
               className="send_btn"
                 onClick={(e) => {
-                  setDisabled(true);
+                  // setDisabled(true);
                   inpVal!== "" && getData(e);
                   document.getElementById("inputText").value = ""
                   setInpVal("")
