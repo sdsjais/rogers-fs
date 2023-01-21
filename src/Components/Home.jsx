@@ -45,12 +45,6 @@ useEffect(()=>{
   return (
     <div className='main'>
       <div>
-        <button onClick={()=>setUser("")} className={user ==="" ? "btn_act":"btn_dis"}>
-          NTB
-        </button>
-        <button onClick={()=>setUser(1)} className={user ===1 ? "btn_act":"btn_dis"}>
-          ETB
-        </button>
       </div>
       <div className="main_box">
         <div className="heading">
