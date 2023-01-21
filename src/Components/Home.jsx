@@ -9,7 +9,6 @@ export const Home = () => {
     const [chat, setChat]= useState(true);
     const [question, setQuestion] = useState([]);
     const [answers, setAnswers] = useState([]);
-    const [user, setUser] = useState("")
     const getData = async(e)=>{
         e.stopPropagation();
         e.preventDefault();
@@ -17,7 +16,7 @@ export const Home = () => {
         var getUserData= sessionStorage.getItem("data")
         const data = {
             "query":getUserData == null ? `${inpVal}`:`${getUserData}${inpVal}`,
-            "id":user
+            "id":""
         }
         var config = {
             method: 'post',
