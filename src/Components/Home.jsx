@@ -4,8 +4,8 @@ import "./Home.css"
 
 export const Home = () => {
     const [inpVal, setInpVal] = useState("");
-    const [resp, setResp] = useState("");
-    const [disabled, setDisabled] = useState(false);
+    // const [resp, setResp] = useState("");
+    // const [disabled, setDisabled] = useState(false);
     const [chat, setChat]= useState(true);
     const [question, setQuestion] = useState([]);
     const [answers, setAnswers] = useState([]);
@@ -29,9 +29,9 @@ export const Home = () => {
           };
           await axios(config)
           .then(function (response) {
-            setResp(response.data.data);
+            // setResp(response.data.data);
             sessionStorage.setItem("data",getUserData == null ? `${inpVal}\n\n${response.data.data}\n\n`:`${getUserData} ${inpVal}\n\n${response.data.data}\n\n`);
-            setDisabled(false);
+            // setDisabled(false);  
             setAnswers([...answers,response.data.data])
           })
           .catch(function (error) {
@@ -41,14 +41,14 @@ export const Home = () => {
 
 useEffect(()=>{
   sessionStorage.setItem("data","")
-},[window.onbeforeunload])
+},[])
   return (
     <div className='main'>
       <div>
-        <button onClick={()=>setUser("")} className={user == "" ? "btn_act":"btn_dis"}>
+        <button onClick={()=>setUser("")} className={user ==="" ? "btn_act":"btn_dis"}>
           NTB
         </button>
-        <button onClick={()=>setUser(1)} className={user == 1 ? "btn_act":"btn_dis"}>
+        <button onClick={()=>setUser(1)} className={user ===1 ? "btn_act":"btn_dis"}>
           ETB
         </button>
       </div>
@@ -98,7 +98,7 @@ useEffect(()=>{
                 type="text"
                 onKeyPress={(e)=>{
                   // setDisabled(true);
-                  if(e.key=="Enter"){
+                  if(e.key==="Enter"){
                     inpVal !=="" && getData(e);
                     document.getElementById("inputText").value = ""
                     setInpVal("")
